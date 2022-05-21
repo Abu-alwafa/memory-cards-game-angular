@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api_base: 'https://api.pexels.com/v1/search',
+  pexels_api_key: '563492ad6f917000010000019a40727dcf3843ed8cb6c3cd37255da1',
 };
 
 /*

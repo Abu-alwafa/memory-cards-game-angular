@@ -1,0 +1,42 @@
+:host {
+
+
+  @media (max-width: 912px) {
+    width: 100%;
+  }
+
+  // display: grid;
+  // grid-template-columns: repeat(4, 150px);
+  // grid-template-rows: repeat(3, 150px);
+  // gap: 10px;
+  .container {
+
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 120px);
+    grid-gap: 10px;
+    height: min-content;
+    padding: 2em;
+
+    @media (max-width: 912px) {
+      width: 100%;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media(max-width: 400px) {
+      padding: 1em;
+    }
+  }
+
+
+
+
+
+  app-card {
+    aspect-ratio: 1;
+  }
+}

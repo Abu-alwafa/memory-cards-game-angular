@@ -1,0 +1,20 @@
+<div class="container" [style.background]="results.backgroundColor">
+  <h1>{{results.message}}</h1>
+
+  <fieldset>
+    <legend>
+      <h3>Details</h3>
+    </legend>
+
+    <ul>
+      <li>Total Turns : {{results.total}}</li>
+      <li>Successed : {{results.succeeded}}</li>
+      <li>Failed : {{results.failed}}</li>
+      <li>Hint Using : {{results['hintUsingCount']}}</li>
+    </ul>
+  </fieldset>
+  <h1>You Got</h1>
+  <code>{{results.percent}}%</code>
+
+  <button (click)="sendBackEvent()">Back</button>
+</div>

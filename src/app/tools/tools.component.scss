@@ -1,0 +1,78 @@
+:host {
+  height: 100px;
+  display: grid;
+  grid-template-columns: 120px 120px 120px;
+  grid-template-rows: 30px;
+  gap: 1em;
+  place-content: end;
+  justify-content: center;
+  padding: 1em;
+
+
+
+  @media(max-width: 576px) {
+    height: unset;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+    border: none;
+    color: white;
+    font-weight: 550;
+    font-size: 16px;
+    border-radius: 2px;
+    cursor: pointer;
+    // border: 1px solid #222;
+    box-shadow: 0 2px 4px #111;
+    transition: 0.25s ease;
+
+    @media(max-width: 400px) {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    @media(hover: hover) {
+      &:hover {
+
+        transform: translateY(3px);
+
+        box-shadow: 0 0 2px #111;
+      }
+    }
+
+
+    span {
+      display: inline-block;
+      padding: 0px 5px;
+      background: white;
+      // border: 1px solid #3490de;
+      color: #ff2e63;
+      border-radius: 2px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+  }
+
+  .hint-btn {
+    background: #ff2e63;
+  }
+
+  .hint-btn.disabled {
+    box-shadow: 0 0 2px #111;
+    transform: translateY(3px);
+    cursor: not-allowed;
+  }
+
+  .play-btn {
+    background: #3490de;
+  }
+
+  .home-btn {
+    background: #00bdaa;
+  }
+}

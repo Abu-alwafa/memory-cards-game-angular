@@ -1,0 +1,7 @@
+<button (click)="playAgainFunc()" class="play-btn">Play Again</button>
+<button [disabled]="!isUsingHintBtn || hintCount === 0" (click)="hintFunc()" class="hint-btn"
+  [class.disabled]="!isUsingHintBtn || hintCount === 0">
+  {{isUsingHintBtn? 'Hint': 'No Hint' }}
+  <span *ngIf="isUsingHintBtn">{{hintCount}}</span>
+</button>
+<button class="home-btn" (click)="homeFunc()">Home</button>
