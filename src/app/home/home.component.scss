@@ -1,11 +1,9 @@
 // Functions first
 // Variable overrides first
-$primary: #ad1629;
-$enable-shadows: true;
-$prefix: "mo-";
+
 
 // Then import Bootstrap
-@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 :host {
   height: 100%;
@@ -45,6 +43,10 @@ $prefix: "mo-";
     grid-template-columns: 2fr 1fr;
     padding: 20px 20px 20px 50px;
 
+    button {
+      background: #ad1629 !important;
+      border: none !important;
+    }
 
     label {
       font-size: 12px;
