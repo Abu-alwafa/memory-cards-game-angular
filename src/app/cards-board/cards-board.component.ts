@@ -6,9 +6,9 @@ import { Component, OnInit, OnChanges, SimpleChanges, Input, Output, EventEmitte
 
 
 const OPEN_TIMEOUT = 1000
-const startSound = new Audio('assets/start.wav')
-const matchSound = new Audio('assets/good-6081.mp3')
-const failSound = new Audio('assets/negative_beeps-6008.mp3')
+const startSound = new Audio('/assets/start.wav')
+const matchSound = new Audio('/assets/good-6081.mp3')
+const failSound = new Audio('/assets/negative_beeps-6008.mp3')
 @Component({
   selector: 'app-cards-board',
   templateUrl: './cards-board.component.html',
