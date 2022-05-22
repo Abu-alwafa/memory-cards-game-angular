@@ -6,7 +6,9 @@ import { Component, OnInit, OnChanges, SimpleChanges, Input, Output, EventEmitte
 
 
 const OPEN_TIMEOUT = 1000
-
+const matchedSound = new Audio('../../assets/good-6081.mp3')
+const failedSound = new Audio('../../assets/negative_beeps-6008.mp3')
+const startSound = new Audio('../../assets/start.wav')
 @Component({
   selector: 'app-cards-board',
   templateUrl: './cards-board.component.html',
@@ -60,11 +62,11 @@ export class CardsBoardComponent implements OnInit, OnChanges {
         this.success++
         this.total++
         this.matchCount++
-
+        matchedSound.play()
         if (this.matchCount === this.cards.length / 2) this.sendResults()
       } else {
         this.total++
-
+        failedSound.play()
       }
     }
   }
@@ -88,7 +90,7 @@ export class CardsBoardComponent implements OnInit, OnChanges {
     this.matchCount = 0
     this.total = 0
     this.success = 0
-
+    startSound.play()
   }
   async ngOnInit(): Promise<void> {
     this.cards = await this.api.getImages()

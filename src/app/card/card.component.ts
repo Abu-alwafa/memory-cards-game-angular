@@ -1,6 +1,6 @@
-import { Card } from '../models/card';
 import { Component, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-card',
