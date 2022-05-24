@@ -1,65 +1,35 @@
 <header>
   <div class="logo">
-    <img src='/assets/memory-game.png' alt="">
+    <img src='{{server_base}}/assets/memory-game.png{{server_base_raw}}' alt="Logo" />
   </div>
 </header>
 
-<form #settingForm='ngForm' (ngSubmit)="onSubmit()">
+<form #settingForm='ngForm' style="display: flex; flex-flow: column wrap;" (ngSubmit)="onSubmit()">
   <div class="setting-form">
-    <fieldset class="form-group">
-      <div>
-        <label for="select" class="mb-2">Choos Images Type :</label>
-        <select id="select" [(ngModel)]="settings['images_type']" name="images_type" class="form-select"
-          aria-label="Default select example">
-          <option selected value="shape">Shapes</option>
-          <option value="beach">Beach</option>
-          <option value="technology">Technology</option>
-          <option value="nature">Nature</option>
-          <option value="abstract">Abstract</option>
-          <option value="art">Art</option>
-        </select>
-      </div>
-      <div>
-        <div class="form-check  mb-2 mt-2">
-          <input [(ngModel)]="settings['using_hint_button']" name="using_hint_button" class="form-check-input"
-            type="checkbox" id="gridCheck1">
-          <label class="form-check-label" for="gridCheck1">
-            Use Hint Button
-          </label>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary">Let's Go</button>
+    <fieldset>
+      <legend>
+        <mat-label>Cards Count</mat-label>
+      </legend>
+
+      <mat-radio-group [(ngModel)]="settings.cards_count" name="{{settings.cards_count}}">
+        <mat-radio-button *ngFor="let item of cards_count" value="{{item.value}}">
+          {{item.text}}
+        </mat-radio-button>
+      </mat-radio-group>
     </fieldset>
-    <fieldset class="form-group">
-      <label class="mb-3">Cards Count :</label>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" [(ngModel)]="settings['cards_count']" name="cards_count"
-          id="gridRadios1" value="4" checked>
-        <label class="form-check-label" for="gridRadios1">
-          8 Card
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" [(ngModel)]="settings['cards_count']" name="cards_count"
-          id="gridRadios2" value="6" checked>
-        <label class="form-check-label" for="gridRadios2">
-          12 Card
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" [(ngModel)]="settings['cards_count']" name="cards_count"
-          id="gridRadios3" value="8">
-        <label class="form-check-label" for="gridRadios3">
-          16 Card
-        </label>
-      </div>
-      <div class="form-check ">
-        <input class="form-check-input" type="radio" [(ngModel)]="settings['cards_count']" name="cards_count"
-          id="gridRadios3" value="10">
-        <label class="form-check-label" for="gridRadios3">
-          20 Card
-        </label>
-      </div>
-    </fieldset>
+    <div class="left">
+      <mat-form-field appearance="outline">
+        <mat-label>Choos Images Type</mat-label>
+        <mat-select [(ngModel)]="settings.images_type" name="images_type">
+          <mat-option *ngFor="let item of imgs_types" [value]="item">
+            {{item | titlecase}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-checkbox [(ngModel)]="settings.using_hint_button" name="using_hint_button">
+        Use Hint Button</mat-checkbox>
+      <button mat-raised-button color="accent" type="submit">Let's Go</button>
+    </div>
+
   </div>
 </form>

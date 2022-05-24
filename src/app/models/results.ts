@@ -1,18 +1,18 @@
 export class Results {
   constructor(private readonly tot: number, private readonly suc: number, private readonly hintUsingCount) { }
   private readonly messages: any[] = [
-    'Sorry, good luck',
+    'Good luck',
     'Not Bad',
     'Good',
     'ُExcellent',
     'Perfect'
   ]
   private setBackgroundColor(m: string, arr: any[]) {
-    if (m === arr[0]) return '#871c1c'
-    else if (m === arr[1]) return '#b02a00'
-    else if (m === arr[2]) return '#cc8800'
-    else if (m === arr[3]) return '#3b9700'
-    else return '#004a85'
+    if (m === arr[0]) return '#e91e63'
+    else if (m === arr[1]) return '#ffc107'
+    else if (m === arr[2]) return '#ffc107'
+    else if (m === arr[3]) return '#4caf50'
+    else return '#00bcd4'
   }
   private sendMessage(p: number) {
     if (p < 40) return this.messages[0]

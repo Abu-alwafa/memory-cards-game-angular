@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { Component, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 
@@ -14,7 +15,8 @@ export class CardComponent implements OnChanges, OnInit {
   @Input() matched: any;
 
   @Output() oppenCard = new EventEmitter<boolean>()
-  constructor() { }
+  constructor() {
+  }
 
   isOpened = false
   hintCards = []

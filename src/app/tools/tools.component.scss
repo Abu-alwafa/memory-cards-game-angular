@@ -1,17 +1,16 @@
 :host {
-  height: 100px;
   display: grid;
   grid-template-columns: 120px 120px 120px;
-  grid-template-rows: 30px;
-  gap: 1em;
+  grid-template-rows: 35px;
+  gap: 10px;
   place-content: end;
   justify-content: center;
-  padding: 1em;
+  margin-top: 2em;
 
 
 
-  @media(max-width: 576px) {
-    height: unset;
+  @media(max-width: 400px) {
+    width: 230px;
     grid-template-columns: 1fr 1fr 1fr;
   }
 
@@ -28,7 +27,7 @@
     cursor: pointer;
     // border: 1px solid #222;
     box-shadow: 0 2px 4px #111;
-    transition: 0.25s ease;
+    transition: 0.1s ease-in;
 
     @media(max-width: 400px) {
       font-size: 12px;
@@ -40,19 +39,20 @@
 
         transform: translateY(3px);
 
-        box-shadow: 0 0 2px #111;
+        box-shadow: 0 1px 1px #111;
+        // box-shadow: none;
       }
     }
 
 
     span {
       display: inline-block;
-      padding: 0px 5px;
+      padding: 0px 6px;
       background: white;
       // border: 1px solid #3490de;
+      border-radius: 50%;
       color: #ff2e63;
-      border-radius: 2px;
-      font-size: 13px;
+      font-size: 10px;
       font-weight: 600;
       margin-left: 10px;
     }
@@ -63,16 +63,17 @@
   }
 
   .hint-btn.disabled {
-    box-shadow: 0 0 2px #111;
+    box-shadow: none;
     transform: translateY(3px);
+    background: grey;
     cursor: not-allowed;
   }
 
-  .play-btn {
+  .home-btn {
     background: #3490de;
   }
 
-  .home-btn {
-    background: #00bdaa;
+  .play-btn {
+    background: #009989;
   }
 }

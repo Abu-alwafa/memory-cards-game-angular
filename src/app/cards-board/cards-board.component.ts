@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 
 import { Results } from './../models/results';
 import { Card } from '../models/card';
@@ -5,10 +6,11 @@ import { ApiServiceService } from './../services/api-service.service';
 import { Component, OnInit, OnChanges, SimpleChanges, Input, Output, EventEmitter } from '@angular/core';
 
 
-const OPEN_TIMEOUT = 1000
-const matchedSound = new Audio('/assets/good-6081.mp3')
-const failedSound = new Audio('/assets/negative_beeps-6008.mp3')
-const startSound = new Audio('/assets/start.wav')
+const OPEN_TIMEOUT = 500
+let matchedSound: HTMLAudioElement
+let failedSound: HTMLAudioElement
+let startSound: HTMLAudioElement
+
 @Component({
   selector: 'app-cards-board',
   templateUrl: './cards-board.component.html',
@@ -28,7 +30,21 @@ export class CardsBoardComponent implements OnInit, OnChanges {
   result: Results
   total: number;
   success: number
+
+
   constructor(private api: ApiServiceService) {
+    (document.querySelector(':root') as any)?.style.setProperty('--card-bg', `url('${environment.server_base}/assets/background.png${environment.server_base_raw}') #27496d`)
+
+    matchedSound ??= new Audio(`${environment.server_base}/assets/good-6081.mp3${environment.server_base_raw}`)
+    failedSound ??= new Audio(`${environment.server_base}/assets/negative_beeps-6008.mp3${environment.server_base_raw}`)
+    startSound ??= new Audio(`${environment.server_base}/assets/start.wav${environment.server_base_raw}`)
+  }
+
+
+  ngOnDestroy() {
+    startSound.pause()
+    matchedSound.pause()
+    failedSound.pause()
   }
 
   st: any // time out prop
@@ -62,11 +78,11 @@ export class CardsBoardComponent implements OnInit, OnChanges {
         this.success++
         this.total++
         this.matchCount++
-        matchedSound.play()
+        matchedSound?.play()
         if (this.matchCount === this.cards.length / 2) this.sendResults()
       } else {
         this.total++
-        failedSound.play()
+        failedSound?.play()
       }
     }
   }
@@ -90,7 +106,7 @@ export class CardsBoardComponent implements OnInit, OnChanges {
     this.matchCount = 0
     this.total = 0
     this.success = 0
-    startSound.play()
+    startSound?.play()
   }
   async ngOnInit(): Promise<void> {
     this.cards = await this.api.getImages()
