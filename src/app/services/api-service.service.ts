@@ -57,7 +57,7 @@ export class ApiServiceService {
         return { url: item.src.small }
       });
       const dublicateShuffleData = dataArray.concat(dataArray).sort(() => Math.random() - .5).map((item: any, index: string) => {
-        return { id: `${index}${Date.now()}`, ...item, oppened: false, disabled: false, matched: false }
+        return { id: `${index}${Date.now()}`, ...item, opened: false, disabled: false, matched: false }
       })
 
       return dublicateShuffleData;
