@@ -8,11 +8,11 @@ export class Results {
     'Perfect'
   ]
   private setBackgroundColor(m: string, arr: any[]) {
-    if (m === arr[0]) return '#e91e63'
-    else if (m === arr[1]) return '#ffc107'
-    else if (m === arr[2]) return '#ffc107'
-    else if (m === arr[3]) return '#4caf50'
-    else return '#00bcd4'
+    if (m === arr[0]) return '#0000008a'
+    else if (m === arr[1]) return '#e91e63'
+    else if (m === arr[2]) return '#f44336'
+    else if (m === arr[3]) return 'green'
+    else return '#673ab7'
   }
   private sendMessage(p: number) {
     if (p < 40) return this.messages[0]

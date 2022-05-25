@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #223950;
 
   // background: #5880a8;
   // background: rgb(52, 128, 153);
@@ -15,7 +14,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: #0000008a;
 
     padding: 0 1em;
 
@@ -52,7 +51,8 @@
       padding: 5px 13px;
       font-size: 18px;
       font-weight: 800;
-      background: white;
+      background-color: #0000008a;
+      color: white;
       outline: none;
       border: none;
       border-radius: 2px;
