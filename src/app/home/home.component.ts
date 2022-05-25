@@ -11,10 +11,7 @@ let homeMusic: HTMLAudioElement
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  @HostListener('onload') onReload() {
-    homeMusic.play()
-    // homeMusic.currentTime = 0
-  }
+
   settings: Settings
   server_base = environment.server_base
   server_base_raw = environment.server_base_raw
