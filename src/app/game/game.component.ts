@@ -19,12 +19,12 @@ export class GameComponent implements OnInit, OnDestroy {
   rDisplay: boolean = false
   constructor(private actions: ActionsService, private api: ApiServiceService) {
     gameMusic ??= new Audio(`${environment.server_base}/assets/game.mp3${environment.server_base_raw}`)
-
-  }
-  ngOnInit(): void {
     gameMusic.play()
     gameMusic.loop = true
     gameMusic.volume = 0.6
+  }
+  ngOnInit(): void {
+
   }
   catchLoadingState(event) {
     this.isLoading = event, 1000

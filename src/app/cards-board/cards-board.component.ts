@@ -43,11 +43,7 @@ export class CardsBoardComponent implements OnInit, OnChanges {
   }
 
 
-  // ngOnDestroy() {
-  //   startSound.pause()
-  //   matchedSound.pause()
-  //   failedSound.pause()
-  // }
+
 
   st: any // time out prop
 
@@ -114,6 +110,7 @@ export class CardsBoardComponent implements OnInit, OnChanges {
       this.isloading = false
     } else this.isloading = true
 
+
     this.rePlay = false;
     this.hintUsingCount = 0
     this.matchCount = 0
@@ -134,6 +131,9 @@ export class CardsBoardComponent implements OnInit, OnChanges {
     if (changes['rePlay']) this.playAgain();
     if (changes['reHint']) {
       this.handleHint();
+    }
+    if (changes['cards']) {
+
     }
   }
 }

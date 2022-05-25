@@ -25,11 +25,12 @@ export class HomeComponent implements OnInit {
   ]
   constructor(private router: Router, private settingsService: SettingsService) {
     homeMusic ??= new Audio(`${environment.server_base}/assets/home.mp3${environment.server_base_raw}`)
+    homeMusic.play()
+    homeMusic.loop = true
   }
 
   ngOnInit(): void {
-    homeMusic.play()
-    homeMusic.loop = true
+
     this.settings = this.settingsService.settings
   }
   ngOnDestroy(): void {
