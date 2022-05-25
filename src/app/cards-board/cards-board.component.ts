@@ -1,3 +1,4 @@
+import { ActionsService } from './../services/actions.service';
 import { environment } from 'src/environments/environment';
 
 import { Results } from './../models/results';
@@ -10,7 +11,6 @@ const OPEN_TIMEOUT = 500
 let matchedSound: HTMLAudioElement
 let failedSound: HTMLAudioElement
 let startSound: HTMLAudioElement
-
 @Component({
   selector: 'app-cards-board',
   templateUrl: './cards-board.component.html',
@@ -21,6 +21,7 @@ export class CardsBoardComponent implements OnInit, OnChanges {
   @Input() rePlay: boolean;
   @Input() reHint: boolean;
   @Output() calcResults = new EventEmitter<Results>()
+  @Output() loadingState = new EventEmitter<boolean>()
   // state: Map<string, Card>
   disabled = false
   cards: any[];
@@ -30,22 +31,23 @@ export class CardsBoardComponent implements OnInit, OnChanges {
   result: Results
   total: number;
   success: number
+  isloading: boolean = true
 
 
-  constructor(private api: ApiServiceService) {
+  constructor(private api: ApiServiceService, private actions: ActionsService) {
     (document.querySelector(':root') as any)?.style.setProperty('--card-bg', `url('${environment.server_base}/assets/background.png${environment.server_base_raw}') #27496d`)
-
-    matchedSound ??= new Audio(`${environment.server_base}/assets/good-6081.mp3${environment.server_base_raw}`)
+    matchedSound ??= new Audio(`${environment.server_base}/assets/nice.wav${environment.server_base_raw}`)
     failedSound ??= new Audio(`${environment.server_base}/assets/negative_beeps-6008.mp3${environment.server_base_raw}`)
-    startSound ??= new Audio(`${environment.server_base}/assets/start.wav${environment.server_base_raw}`)
+    failedSound.volume = 0.5
+    // startSound ??= new Audio(`${environment.server_base}/assets/start.wav${environment.server_base_raw}`)
   }
 
 
-  ngOnDestroy() {
-    startSound.pause()
-    matchedSound.pause()
-    failedSound.pause()
-  }
+  // ngOnDestroy() {
+  //   startSound.pause()
+  //   matchedSound.pause()
+  //   failedSound.pause()
+  // }
 
   st: any // time out prop
 
@@ -99,23 +101,39 @@ export class CardsBoardComponent implements OnInit, OnChanges {
     this.result = new Results(this.total, this.success, this.hintUsingCount)
     this.calcResults.emit(this.result)
   }
+  sendLoadingState() {
+    this.loadingState.emit(this.isloading)
+  }
   async playAgain(): Promise<void> {
     this.cards = await this.api.getImages()
+    if (this.cards.length) {
+      this.cards.forEach(card => {
+        card.opened = true
+        card.loaded = false
+      })
+      this.isloading = false
+    } else this.isloading = true
+
     this.rePlay = false;
     this.hintUsingCount = 0
     this.matchCount = 0
     this.total = 0
     this.success = 0
+    this.sendLoadingState()
+    this.actions.lazyTime = 200;
     startSound?.play()
   }
-  async ngOnInit(): Promise<void> {
-    this.cards = await this.api.getImages()
+  ngOnInit() {
+    // this.cards = await this.api.getImages()
+    // this.cards = this.cards.map(card => ({ ...card, loaded: false, opened: true }))
+    // this.isloading = false
+    // this.sendLoadingState()
+    this.playAgain();
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['rePlay']) this.playAgain();
     if (changes['reHint']) {
       this.handleHint();
-
     }
   }
 }

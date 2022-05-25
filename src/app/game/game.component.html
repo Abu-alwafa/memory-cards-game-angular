@@ -4,10 +4,12 @@
 </div>
 
 <div class="container" [class.hidden]="isLoading||rDisplay">
-  <app-cards-board (calcResults)="catchResults($event)" [reHint]="reHint" [rePlay]="rePlay">
+  <app-cards-board (loadingState)="catchLoadingState($event)" (calcResults)="catchResults($event)" [reHint]="reHint"
+    [rePlay]="rePlay">
   </app-cards-board>
   <app-tools (hintEvent)="hint($event)" [rePlay]="rePlay" [reHint]="reHint" (playAgain)="handlePlayAgain($event)">
   </app-tools>
 </div>
 
 <app-results *ngIf="rDisplay" (backEvent)="handleBack()" [results]="results"></app-results>
+<!-- -->

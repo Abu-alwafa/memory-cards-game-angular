@@ -1,3 +1,4 @@
+import { ActionsService } from './services/actions.service';
 import { SettingsService } from './services/settings.service';
 import { ApiServiceService } from './services/api-service.service';
 import { NgModule } from '@angular/core';
@@ -45,7 +46,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [ApiServiceService, SettingsService],
+  providers: [ApiServiceService, SettingsService, ActionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

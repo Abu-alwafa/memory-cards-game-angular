@@ -65,15 +65,15 @@
   .hint-btn.disabled {
     box-shadow: none;
     transform: translateY(3px);
-    background: grey;
+    background: #777;
     cursor: not-allowed;
   }
 
   .home-btn {
-    background: #3490de;
+    background: #72408b;
   }
 
   .play-btn {
-    background: #009989;
+    background: #27496d;
   }
 }

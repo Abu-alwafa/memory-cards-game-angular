@@ -35,32 +35,42 @@
   height: 100%;
   top: 0;
   left: 0;
-  background: #223950;
+  background: rgb(86, 166, 192);
+  // background: #0257ac;
+
 }
 
 .ring {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  animation: ring 2s linear infinite;
+  animation: ring 3s ease 10;
 }
 
 @keyframes ring {
+
   0% {
     transform: rotate(0deg);
-    box-shadow: 1px 5px 2px #e65c00;
+    box-shadow: 1px 4px 2px lightcoral;
+  }
+
+
+  25% {
+    transform: rotate(180deg);
+    box-shadow: 1px 4px 2px mediumslateblue;
   }
 
   50% {
-    transform: rotate(180deg);
-    box-shadow: 1px 5px 2px #18b201;
+    transform: rotate(270deg);
+    box-shadow: 1px 4px 2px cornflowerblue;
   }
 
   100% {
     transform: rotate(360deg);
-    box-shadow: 1px 5px 2px #0456c8;
+    box-shadow: 1px 4px 2px lightcoral;
   }
+
 }
 
 .ring:before {
@@ -71,20 +81,25 @@
   height: 100%;
   width: 100%;
   border-radius: 50%;
-  box-shadow: 0 0 5px rgba(255, 255, 255, .3);
+  box-shadow: 0 0 5px rgba(255, 255, 255, .1);
 }
 
 span {
-  color: #737373;
+  color: rgb(209, 56, 56);
   font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 200px;
-  animation: text 3s ease-in-out infinite;
+  animation: txt 3s ease 10;
 }
 
-@keyframes text {
+@keyframes txt {
+
+
   50% {
-    color: white;
+    color: rgb(116, 30, 197)
   }
+
+
+
 }

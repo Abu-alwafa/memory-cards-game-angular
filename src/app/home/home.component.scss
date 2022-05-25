@@ -4,7 +4,7 @@
   grid-template-columns: 600px;
   grid-template-rows: 1fr 1fr;
   place-content: center;
-  color: white;
+  color: #ad1629;
 
   @media (max-width: 576px) {
     grid-template-columns: 100%;
@@ -59,10 +59,14 @@
       min-height: 150px;
       width: 100%;
       border-radius: 6px;
+      font-size: 12px;
+      border: 1px solid #72408b;
 
       legend {
         text-align: left;
         margin-left: 8px;
+        color: #72408b;
+        font-size: 10px;
 
         mat-label {
           padding: 0 8px 0 5px;
@@ -84,7 +88,7 @@
       margin-bottom: -5px;
       background: #ad1629 !important;
       border: none !important;
-      box-shadow: 0 2px 5px #111 !important;
+      box-shadow: 0 2px 3px #111;
       text-transform: uppercase;
       transition: 0.1s ease-in-out;
 
@@ -110,19 +114,19 @@
 }
 
 ::ng-deep .mat-form-field-flex .mat-form-field-label {
-  color: white;
+  color: #72408b;
 }
 
 ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
-  color: white;
+  color: #72408b;
 }
 
 ::ng-deep .mat-form-field-outline {
-  color: white !important;
+  color: #72408b !important;
 }
 
 ::ng-deep .mat-form-field .mat-select-arrow {
-  color: white;
+  color: #ad1629;
 }
 
 
@@ -135,7 +139,7 @@
 }
 
 ::ng-deep .mat-select-value {
-  color: white !important;
+  color: #ad1629 !important;
 }
 
 ::ng-deep .mat-radio-button.mat-accent .mat-radio-outer-circle {
