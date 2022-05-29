@@ -5,7 +5,9 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   // overflow: hidden;
+  place-content: center;
   position: relative;
+
 
 
   .container {

@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SettingsService {
-
   settings: Settings
   constructor() {
     this.settings = new Settings()

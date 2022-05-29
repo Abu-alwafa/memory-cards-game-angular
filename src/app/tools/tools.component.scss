@@ -7,7 +7,9 @@
   justify-content: center;
   margin-top: 2em;
 
-
+  *{
+    font-family: 'Baloo Da 2', cursive !important;
+  }
 
   @media(max-width: 400px) {
     width: 230px;

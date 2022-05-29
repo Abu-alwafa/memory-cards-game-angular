@@ -3,6 +3,7 @@ import { SettingsService } from './../services/settings.service';
 import { Settings } from '../models/settings';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActionsService } from '../services/actions.service';
 
 let homeMusic: HTMLAudioElement
 @Component({
@@ -23,21 +24,42 @@ export class HomeComponent implements OnInit {
     { value: '8', text: '16 Card' },
     { value: '10', text: '20 Card' }
   ]
-  constructor(private router: Router, private settingsService: SettingsService) {
+  constructor(private router: Router, private settingsService: SettingsService, public actions: ActionsService) {
     homeMusic ??= new Audio(`${environment.server_base}/assets/home.mp3${environment.server_base_raw}`)
-    homeMusic.play()
+    // homeMusic.play()
     homeMusic.loop = true
   }
-
   ngOnInit(): void {
 
+    
+    if(this.actions.musicMuted){
+      homeMusic.pause()
+      homeMusic.muted = true
+    }else {
+      homeMusic.play()
+      homeMusic.muted = false
+    }
     this.settings = this.settingsService.settings
   }
   ngOnDestroy(): void {
     homeMusic.pause()
     homeMusic.currentTime = 0
+  
   }
   onSubmit() {
     this.router.navigate(['game']);
+  }
+  toggleMusicState(){
+    this.actions.musicMuted = !this.actions.musicMuted
+    console.log(this.actions.musicMuted);
+    
+    if(this.actions.musicMuted){
+      homeMusic.pause()
+      homeMusic.muted = true
+    }else {
+      homeMusic.play()
+      homeMusic.muted = false
+    }
+    
   }
 }

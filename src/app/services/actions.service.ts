@@ -6,5 +6,10 @@ import { Injectable } from '@angular/core';
 export class ActionsService {
   isLoading: boolean = true
   lazyTime: number = 0
-  constructor() { }
+  musicMuted:boolean = false
+
+
+  constructor() { 
+    console.log(this.musicMuted);
+  }
 }

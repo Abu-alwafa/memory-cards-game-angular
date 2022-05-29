@@ -4,7 +4,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  *{
+    font-family: 'Baloo Da 2', cursive !important;
+  }
   // background: #5880a8;
   // background: rgb(52, 128, 153);
   .container {

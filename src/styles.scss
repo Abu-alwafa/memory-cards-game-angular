@@ -1,6 +1,9 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
+
 @use '@angular/material'as mat;
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@800&display=swap');
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -28,7 +31,6 @@ $memory-cards-theme: mat.define-light-theme((color: (primary: $memory-cards-prim
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($memory-cards-theme);
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@800&display=swap');
 
 :root {
   --card-bg: url('/assets/background.png') #27496d
@@ -38,7 +40,6 @@ $memory-cards-theme: mat.define-light-theme((color: (primary: $memory-cards-prim
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Baloo Da 2', cursive !important;
 
 }
 
@@ -49,7 +50,7 @@ body {
   padding: 0;
   margin: 0;
   background: rgb(86, 166, 192);
-
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   // background: #0257ac;
   // background: #00bdaa;
   overflow-x: hidden;

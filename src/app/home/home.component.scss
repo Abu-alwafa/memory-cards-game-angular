@@ -1,3 +1,4 @@
+
 :host {
   height: 100%;
   display: grid;
@@ -17,7 +18,20 @@
 
     .logo {
       // max-width: 500px;
+      position: relative;
+      .mat-mini-fab{
+        position: absolute !important;
+        bottom: 10%;
+        right: 10%;
+        background: #f8e100 !important;
+        color: #303030;
 
+        @media(max-width: 400px){
+          bottom: 5%;
+          right: 5%;
+        }
+        
+      }
 
       @media(max-width: 576px) {
         margin: 75px 20px 20px 20px;
@@ -32,7 +46,11 @@
   }
 
   .setting-form {
-    margin: auto;
+    *{
+      font-family: 'Baloo Da 2', cursive !important;
+    }
+    
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 150px 150px;
     grid-template-rows: 1fr;
