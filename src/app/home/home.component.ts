@@ -31,11 +31,11 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit(): void {
 
-    
-    if(this.actions.musicMuted){
+
+    if (this.actions.musicMuted) {
       homeMusic.pause()
       homeMusic.muted = true
-    }else {
+    } else {
       homeMusic.play()
       homeMusic.muted = false
     }
@@ -44,22 +44,21 @@ export class HomeComponent implements OnInit {
   ngOnDestroy(): void {
     homeMusic.pause()
     homeMusic.currentTime = 0
-  
+
   }
   onSubmit() {
     this.router.navigate(['game']);
   }
-  toggleMusicState(){
+  toggleMusicState() {
     this.actions.musicMuted = !this.actions.musicMuted
-    console.log(this.actions.musicMuted);
-    
-    if(this.actions.musicMuted){
+
+    if (this.actions.musicMuted) {
       homeMusic.pause()
       homeMusic.muted = true
-    }else {
+    } else {
       homeMusic.play()
       homeMusic.muted = false
     }
-    
+
   }
 }

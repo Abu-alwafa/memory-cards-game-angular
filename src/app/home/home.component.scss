@@ -1,36 +1,38 @@
-
 :host {
-  height: 100%;
+  height: 100vh;
+  width: 100%;
   display: grid;
-  grid-template-columns: 600px;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
   place-content: center;
+  align-items: center;
   color: #ad1629;
 
-  @media (max-width: 576px) {
-    grid-template-columns: 100%;
-    grid-template-rows: 1fr 2fr;
+  // @media (max-width: 576px) {
+  //   grid-template-columns: 100%;
+  //   grid-template-rows: 1fr 2fr;
 
-  }
+  // }
 
   header {
     margin: auto;
 
     .logo {
-      // max-width: 500px;
+      margin-bottom: 20px;
       position: relative;
-      .mat-mini-fab{
+
+      .mat-mini-fab {
         position: absolute !important;
         bottom: 10%;
         right: 10%;
         background: #f8e100 !important;
         color: #303030;
 
-        @media(max-width: 400px){
+        @media(max-width: 400px) {
           bottom: 5%;
           right: 5%;
         }
-        
+
       }
 
       @media(max-width: 576px) {
@@ -46,10 +48,10 @@
   }
 
   .setting-form {
-    *{
+    * {
       font-family: 'Baloo Da 2', cursive !important;
     }
-    
+
     margin: 0 auto;
     display: grid;
     grid-template-columns: 150px 150px;

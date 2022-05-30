@@ -1,32 +1,33 @@
+// :host {
+
 :host {
+  display: grid;
+  grid-template-columns: repeat(5, 110px);
+  grid-gap: 10px;
+  height: min-content;
+  margin: auto;
 
-  .container {
-    display: grid;
-    grid-template-columns: repeat(5, 110px);
-    grid-gap: 10px;
-    height: min-content;
-
-
-    @media (max-width: 912px) {
-      // width: 100%;
-      grid-template-columns: repeat(4, 150px);
-    }
-
-    @media (max-width: 576px) {
-      grid-template-columns: repeat(4, 90px);
-    }
-
-    @media(max-width: 400px) {
-      margin-bottom: 0;
-      grid-template-columns: repeat(3, 70px);
-    }
+  @media (max-width: 912px) {
+    // width: 100%;
+    grid-template-columns: repeat(4, 150px);
   }
 
+  @media (max-width: 576px) {
+    grid-template-columns: repeat(4, 90px);
+  }
 
-
-
-
-  app-card {
-    aspect-ratio: 1;
+  @media(max-width: 400px) {
+    margin-bottom: 0;
+    grid-template-columns: repeat(3, 70px);
   }
 }
+
+
+
+
+
+app-card {
+  aspect-ratio: 1;
+}
+
+// }

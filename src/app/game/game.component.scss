@@ -1,23 +1,19 @@
 :host {
-  height: 100%;
+  height: 100vh;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
   // overflow: hidden;
-  place-content: center;
   position: relative;
 
 
-
   .container {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
+    height: 100vh;
+    display: grid;
+    // grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
     padding: 1em;
+    place-content: center;
+    margin: auto;
 
-    // margin: auto;
     &.hidden {
       display: none;
     }
