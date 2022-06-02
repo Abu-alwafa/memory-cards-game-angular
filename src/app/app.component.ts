@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { routing } from './animations/routing';
+// import { routing } from './animations/routing';
 
 @Component({
   selector: 'app-root',

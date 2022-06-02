@@ -14,7 +14,7 @@ export class ToolsComponent implements OnInit, OnChanges {
   @Output() playAgain: EventEmitter<boolean> = new EventEmitter()
   @Output() hintEvent: EventEmitter<boolean> = new EventEmitter()
   constructor(private router: Router, private settingService: SettingsService) {
-    hintAbleTime = Number(this.settingService.settings.cards_count) * 2 * 300
+    hintAbleTime = Number(this.settingService.settings.cards_count) * 2 * 350
   }
 
   hintCount: number = 0;

@@ -1,8 +1,5 @@
-<div class="center" *ngIf="isLoading">
-  <div class="ring"></div>
-  <span>loading...</span>
-</div>
-
+<app-loader *ngIf="isLoading"></app-loader>
+<!--  -->
 <div class="container" [class.hidden]="isLoading||rDisplay">
   <app-cards-board (loadingState)="catchLoadingState($event)" (calcResults)="catchResults($event)" [reHint]="reHint"
     [rePlay]="rePlay">

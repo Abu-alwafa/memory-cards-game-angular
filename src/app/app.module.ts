@@ -21,7 +21,8 @@ import { MatSelectModule } from '@angular/material/select'
 import { MatRadioModule } from '@angular/material/radio'
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { LoaderComponent } from './loader/loader.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MatIconModule } from '@angular/material/icon'
     ToolsComponent,
     CardComponent,
     HomeComponent,
-    ResultsComponent
+    ResultsComponent,
+    LoaderComponent
   ],
   imports: [
 

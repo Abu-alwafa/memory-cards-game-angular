@@ -21,7 +21,7 @@ export class CardComponent implements OnChanges, OnInit {
   @Output() oppenCard = new EventEmitter<boolean>()
 
   constructor(private settingService: SettingsService, private actions: ActionsService) {
-    closingCardsTime = Number(this.settingService.settings.cards_count) * 2 * 300
+    closingCardsTime = Number(this.settingService.settings.cards_count) * 2 * 350
     lazyTime = this.actions.lazyTime
   }
 
